@@ -1,0 +1,16 @@
+from django.shortcuts import render, get_object_or_404
+from .models import Project
+
+
+
+
+
+
+def blog(request):
+   projects= Project.objects.all()
+   return render(request, 'blog/blog.html', {"projects" : projects} )
+
+
+def detail(request, blog_id):
+   blog = get_object_or_404(Project, pk=blog_id)
+   return render(request, 'blog/detail.html', {"blog": blog})
