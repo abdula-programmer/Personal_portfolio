@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-_242=*1m-=*qmi%g5w1aleb-guqfbl9-m!ovf1v=55n#++dn1)"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['Abdula.pythonanywhere.com']
 
@@ -126,3 +126,10 @@ MEDIA_URL = '/media/'
 
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+try: 
+    from .local_settings import *
+    
+except ImportError:
+    print('Это онлайн версия сайта')
